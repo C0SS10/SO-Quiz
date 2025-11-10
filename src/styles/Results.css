@@ -1,0 +1,113 @@
+.results-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.results-card {
+  width: 100%;
+  background: #e0e5ec;
+  border-radius: 25px;
+  padding: 3rem;
+  box-shadow:
+    12px 12px 24px rgba(163, 177, 198, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.award-icon {
+  color: #f6ad55;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(246, 173, 85, 0.3));
+}
+
+.results-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4a5568;
+  margin-bottom: 2rem;
+}
+
+.score-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.score-number {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-total {
+  font-size: 2rem;
+  color: #8b9dad;
+  font-weight: 600;
+}
+
+.percentage {
+  font-size: 1.5rem;
+  color: #5a6c7d;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.restart-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow:
+    5px 5px 15px rgba(102, 126, 234, 0.4),
+    -5px -5px 15px rgba(118, 75, 162, 0.2);
+  transition: all 0.2s;
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    7px 7px 20px rgba(102, 126, 234, 0.5),
+    -7px -7px 20px rgba(118, 75, 162, 0.3);
+}
+
+.restart-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .question-card {
+    padding: 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+  }
+
+  .timer-text {
+    font-size: 1.5rem;
+  }
+
+  .score-number {
+    font-size: 3rem;
+  }
+}

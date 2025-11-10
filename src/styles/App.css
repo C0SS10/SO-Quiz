@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.feedback-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.feedback-content {
+  font-size: 3rem;
+  font-weight: 800;
+  padding: 2rem 4rem;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.feedback-content.correct {
+  background: rgba(46, 204, 113, 0.7);
+}
+
+.feedback-content.incorrect {
+  background: rgba(231, 76, 60, 0.7);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.app-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg,
+      #2e97b7ff,
+      #32b9beff,
+      #5bcebfff,
+      #a4dcb9ff,
+      #fdf4b0ff);
+  background-size: 400% 400%;
+  animation: gradientShift 120s ease infinite;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  transition: background 1s ease;
+}
+
+/* --- Columna izquierda: pregunta --- */
+.question-card {
+  flex: 1;
+  max-width: 700px;
+  background: transparent;
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow:
+    12px 12px 24px rgba(163, 177, 198, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+  animation: shadowShift 120s ease infinite;
+  transition: all 0.5s ease;
+}
+
+/* --- Columna derecha: timer + botón --- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Ajustes al timer para que no crezca demasiado */
+.timer-container {
+  width: 220px;
+  background: transparent;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow:
+    9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: shadowShift 120s ease infinite;
+}
+
+.timer-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #323c45;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  box-shadow:
+    5px 5px 10px rgba(163, 177, 198, 0.6),
+    -5px -5px 10px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #323c45;
+  transition: all 0.2s;
+  animation: shadowShift 120s ease infinite;
+}
+
+.control-btn:hover {
+  box-shadow:
+    3px 3px 6px rgba(163, 177, 198, 0.6),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.control-btn:active {
+  box-shadow:
+    inset 2px 2px 4px rgba(163, 177, 198, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* --- Botón siguiente debajo del timer --- */
+.next-btn {
+  width: 220px;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 15px;
+  color: rgb(39, 70, 81);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow:
+    5px 5px 15px rgba(102, 126, 234, 0.4),
+    -5px -5px 15px rgba(118, 75, 162, 0.2);
+  transition: all 0.2s;
+  animation: shadowShift 120s ease infinite;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    7px 7px 20px rgba(102, 126, 234, 0.5),
+    -7px -7px 20px rgba(118, 75, 162, 0.3);
+}
+
+.next-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Animaciones --- */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  25% {
+    background-position: 50% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  75% {
+    background-position: 50% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shadowShift {
+  0% {
+    box-shadow:
+      9px 9px 18px rgba(46, 151, 183, 0.4),
+      -9px -9px 18px rgba(253, 244, 176, 0.4);
+  }
+
+  25% {
+    box-shadow:
+      9px 9px 18px rgba(50, 185, 190, 0.4),
+      -9px -9px 18px rgba(91, 206, 191, 0.4);
+  }
+
+  50% {
+    box-shadow:
+      9px 9px 18px rgba(164, 220, 185, 0.4),
+      -9px -9px 18px rgba(91, 206, 191, 0.4);
+  }
+
+  75% {
+    box-shadow:
+      9px 9px 18px rgba(253, 244, 176, 0.4),
+      -9px -9px 18px rgba(50, 185, 190, 0.4);
+  }
+
+  100% {
+    box-shadow:
+      9px 9px 18px rgba(46, 151, 183, 0.4),
+      -9px -9px 18px rgba(253, 244, 176, 0.4);
+  }
+}
+
+/* --- Adaptación móvil --- */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .next-btn,
+  .timer-container {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Ajuste en pantallas más pequeñas --- */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* sigue centrado */
+    text-align: center;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .next-btn,
+  .timer-container {
+    width: 100%;
+    max-width: 400px;
+  }
+}
