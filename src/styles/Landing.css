@@ -19,22 +19,14 @@
   transition: background 0.5s ease;
 }
 
-/* Animación del gradiente */
+/* --- Animación del gradiente --- */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
 
-  25% {
-    background-position: 50% 50%;
-  }
-
   50% {
     background-position: 100% 50%;
-  }
-
-  75% {
-    background-position: 50% 50%;
   }
 
   100% {
@@ -42,19 +34,53 @@
   }
 }
 
-/* --- Texto --- */
+/* --- Texto principal --- */
 .landing-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
-  color: #292f45;
-  margin-bottom: 1rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
   text-shadow:
     2px 2px 4px rgba(0, 0, 0, 0.2),
     -1px -1px 3px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Texto animado (typing) --- */
+.typing-text {
+  color: #225b6c;
+  font-weight: 900;
+  margin-left: 0.4rem;
+  text-shadow:
+    0px 0px 10px rgba(46, 151, 183, 0.6),
+    0px 0px 20px rgba(91, 206, 191, 0.4);
   transition: color 0.5s ease;
 }
 
-/* --- Botón con neumorphism adaptable --- */
+/* --- Cursor parpadeante --- */
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  width: 2px;
+  background: #1e293b;
+  animation: blink 0.9s infinite;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- Botón neumorphism --- */
 .start-btn {
   padding: 1rem 3rem;
   border-radius: 20px;
@@ -64,11 +90,11 @@
   box-shadow:
     6px 6px 12px rgba(0, 0, 0, 0.25),
     -6px -6px 12px rgba(255, 255, 255, 0.6);
-  color: #292f45;
+  color: #1e293b;
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease, background-color 1s ease;
+  transition: all 0.3s ease;
 }
 
 .start-btn:hover {
@@ -81,4 +107,11 @@
 
 .start-btn:active {
   transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2rem;
+  }
 }
