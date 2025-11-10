@@ -1,36 +1,56 @@
 .results-container {
-  width: 100%;
-  max-width: 500px;
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  background: linear-gradient(135deg,
+      #2e97b7ff,
+      #32b9beff,
+      #5bcebfff,
+      #a4dcb9ff,
+      #fdf4b0ff);
+  background-size: 400% 400%;
+  animation: backgroundShift 60s ease infinite;
+  padding: 2rem;
 }
 
 .results-card {
-  width: 100%;
-  background: #e0e5ec;
+  background: transparent;
   border-radius: 25px;
   padding: 3rem;
-  box-shadow:
-    12px 12px 24px rgba(163, 177, 198, 0.6),
-    -12px -12px 24px rgba(255, 255, 255, 0.8);
+  max-width: 480px;
+  width: 100%;
   text-align: center;
+  box-shadow:
+    15px 15px 30px rgba(163, 177, 198, 0.6),
+    -15px -15px 30px rgba(255, 255, 255, 0.8);
+  animation: shadowShift 30s ease infinite, fadeIn 0.8s ease;
+  transition: all 0.4s ease;
+  transform: scale(1);
+}
+
+.results-card:hover {
+  transform: scale(1.02);
 }
 
 .award-icon {
-  color: #f6ad55;
+  color: #f3a546;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(2px 2px 4px rgba(246, 173, 85, 0.3));
+  filter: drop-shadow(0 0 10px rgba(246, 173, 85, 0.4));
+  animation: bounce 2.5s infinite ease-in-out;
 }
 
+/* --- Título --- */
 .results-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #4a5568;
+  color: #32414e;
   margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(163, 177, 198, 0.3);
 }
 
+/* --- Puntuación --- */
 .score-display {
   display: flex;
   align-items: baseline;
@@ -42,28 +62,30 @@
 .score-number {
   font-size: 4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2e97b7ff 0%, #64f298 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 2px 2px 4px rgba(163, 177, 198, 0.4);
 }
 
 .score-total {
   font-size: 2rem;
-  color: #8b9dad;
+  color: #65727e;
   font-weight: 600;
 }
 
+/* --- Porcentaje --- */
 .percentage {
   font-size: 1.5rem;
-  color: #5a6c7d;
+  color: #32414e;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
+/* --- Botón reintentar --- */
 .restart-btn {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2e97b7ff, #5bcebfff);
   border: none;
   border-radius: 15px;
   color: white;
@@ -76,38 +98,106 @@
   box-shadow:
     5px 5px 15px rgba(102, 126, 234, 0.4),
     -5px -5px 15px rgba(118, 75, 162, 0.2);
-  transition: all 0.2s;
+  transition: all 0.25s ease;
 }
 
 .restart-btn:hover {
   transform: translateY(-2px);
   box-shadow:
-    7px 7px 20px rgba(102, 126, 234, 0.5),
-    -7px -7px 20px rgba(118, 75, 162, 0.3);
+    7px 7px 20px rgba(91, 206, 191, 0.4),
+    -7px -7px 20px rgba(164, 220, 185, 0.4);
 }
 
 .restart-btn:active {
   transform: translateY(0);
 }
 
+/* --- Animaciones suaves --- */
+@keyframes shadowShift {
+  0% {
+    box-shadow:
+      9px 9px 18px rgba(46, 151, 183, 0.4),
+      -9px -9px 18px rgba(253, 244, 176, 0.4);
+  }
+
+  25% {
+    box-shadow:
+      9px 9px 18px rgba(50, 185, 190, 0.4),
+      -9px -9px 18px rgba(91, 206, 191, 0.4);
+  }
+
+  50% {
+    box-shadow:
+      9px 9px 18px rgba(164, 220, 185, 0.4),
+      -9px -9px 18px rgba(91, 206, 191, 0.4);
+  }
+
+  75% {
+    box-shadow:
+      9px 9px 18px rgba(253, 244, 176, 0.4),
+      -9px -9px 18px rgba(50, 185, 190, 0.4);
+  }
+
+  100% {
+    box-shadow:
+      9px 9px 18px rgba(46, 151, 183, 0.4),
+      -9px -9px 18px rgba(253, 244, 176, 0.4);
+  }
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .app-container {
-    padding: 1rem;
+  .results-card {
+    padding: 2rem;
   }
 
-  .question-card {
-    padding: 1.5rem;
-  }
-
-  .question-text {
-    font-size: 1.2rem;
-  }
-
-  .timer-text {
-    font-size: 1.5rem;
+  .results-title {
+    font-size: 1.6rem;
   }
 
   .score-number {
     font-size: 3rem;
+  }
+
+  .restart-btn {
+    width: 100%;
   }
 }

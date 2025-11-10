@@ -9,12 +9,12 @@ type ResultsProps = {
 
 export const Results = ({ score, total, onRestart }: ResultsProps) => {
   const percentage = Math.round((score / total) * 100);
-  
+
   return (
     <div className="results-container">
       <div className="results-card">
         <Award size={64} className="award-icon" />
-        <h2 className="results-title">¡Cuestionario Completado!</h2>
+        <h2 className="results-title">¡Quiz Completado!</h2>
         <div className="score-display">
           <span className="score-number">{score}</span>
           <span className="score-total">/ {total}</span>
