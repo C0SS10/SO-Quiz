@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/Landing.css";
+import { Github } from "lucide-react";
 
 export const Landing = () => {
   const navigate = useNavigate();
@@ -51,6 +52,16 @@ export const Landing = () => {
       <button className="start-btn" onClick={() => navigate("/quiz")}>
         Iniciar
       </button>
+
+      <a
+        href="https://github.com/C0SS10/SO-Quiz"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="github-btn"
+        aria-label="Ver en GitHub"
+      >
+        <Github size={30} />
+      </a>
     </div>
   );
 };
